@@ -1,0 +1,24 @@
+dataset/ 
+__pycache__/ 
+*.pyc 
+.DS_Store 
+# Exclude H5 files but KEEP .keras model files for deployment
+*.h5 
+!model/*.keras
+venv/
+env/
+.env
+.env.local
+.venv/
+.pytest_cache/
+.coverage
+temp_image.jpg
+temp/
+.streamlit/secrets.toml
+.idea/
+.vscode/
+*.log
+*.pid
+*.swp
+*.swo
+*~

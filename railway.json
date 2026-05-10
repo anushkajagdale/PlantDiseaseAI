@@ -1,0 +1,25 @@
+{
+  "build": {
+    "builder": "dockerfile"
+  },
+  "deploy": {
+    "restartPolicyType": "always",
+    "restartPolicyMaxRetries": 10,
+    "healthchecks": {
+      "liveness": {
+        "command": "curl --fail http://localhost:8501/_stcore/health || exit 1",
+        "interval": 30,
+        "timeout": 5,
+        "retries": 3,
+        "startPeriod": 60
+      }
+    }
+  },
+  "variables": {
+    "STREAMLIT_SERVER_HEADLESS": "true",
+    "STREAMLIT_SERVER_PORT": "8501",
+    "STREAMLIT_SERVER_ADDRESS": "0.0.0.0",
+    "STREAMLIT_CLIENT_LOGGER_LEVEL": "info",
+    "PYTHONUNBUFFERED": "1"
+  }
+}
